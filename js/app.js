@@ -81,5 +81,13 @@ function llenarSelect(){
 //funcion que filtra en base a la busqueda
 
 function filtrarAuto(){
-  const resultado = autos.filter()
+  const resultado = autos.filter(filtrarMarca);
+  console.log(resultado);
+};
+
+function filtrarMarca(auto){
+  if (datosBusqueda.marca){
+    return auto.marca === datosBusqueda.marca;
+  }
+  return auto;
 }
