@@ -1,6 +1,6 @@
 //Variables
 const marca = document.querySelector('#marca');
-const resultado = document.querySelector('#resultado');
+const resultado = document.querySelector('#resultado'); //contenedor para los resultados
 const year = document.querySelector('#year');
 const minimo = document.querySelector('#minimo');
 const maximo = document.querySelector('#maximo');
@@ -58,6 +58,7 @@ color.addEventListener('change',(e) => {
 //Funciones
 
 function mostrarAutos(autos){
+  limpiarHTML(); //Elimina el HTML previo
   //En db el array se llama autos
   autos.forEach(auto => {
     const autoP = document.createElement('p');
@@ -67,6 +68,13 @@ function mostrarAutos(autos){
     resultado.appendChild(autoP)
   });
 
+}
+
+function limpiarHTML(){
+  // Mientras haya algo
+  while(resultado.firstChild){
+    resultado.removeChild(resultado.firstChild);
+  }
 }
 
 //Muestra los años en el select
