@@ -32,11 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Event Listener para los Select
 marca.addEventListener('change',(e) => {
-  datosBusqueda.marca = e.target.value
+  datosBusqueda.marca = e.target.value;
   filtrarAuto();
 })
 year.addEventListener('change',(e) => {
-  datosBusqueda.year = e.target.value
+  datosBusqueda.year = e.target.value;
+  filtrarAuto();
 })
 puertas.addEventListener('change',(e) => {
   datosBusqueda.puertas = e.target.value
@@ -81,13 +82,20 @@ function llenarSelect(){
 //funcion que filtra en base a la busqueda
 
 function filtrarAuto(){
-  const resultado = autos.filter(filtrarMarca);
+  const resultado = autos.filter(filtrarMarca).filter(filtrarYear);
   console.log(resultado);
 };
 
 function filtrarMarca(auto){
   if (datosBusqueda.marca){
     return auto.marca === datosBusqueda.marca;
+  }
+  return auto;
+}
+
+function filtrarYear(auto){
+  if (datosBusqueda.year){
+    return auto.year === parseInt(datosBusqueda.year);
   }
   return auto;
 }
