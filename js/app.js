@@ -26,7 +26,7 @@ const datosBusqueda = {
 }
 //Eventos
 document.addEventListener('DOMContentLoaded', () => {
-  mostrarAutos(); //Muestra los autos
+  mostrarAutos(autos); //Muestra los autos
   llenarSelect(); //Muestra los años en el select
 })
 
@@ -57,7 +57,7 @@ color.addEventListener('change',(e) => {
 
 //Funciones
 
-function mostrarAutos(){
+function mostrarAutos(autos){
   //En db el array se llama autos
   autos.forEach(auto => {
     const autoP = document.createElement('p');
@@ -84,6 +84,8 @@ function llenarSelect(){
 function filtrarAuto(){
   const resultado = autos.filter(filtrarMarca).filter(filtrarYear);
   console.log(resultado);
+
+  mostrarAutos(resultado);
 };
 
 function filtrarMarca(auto){
