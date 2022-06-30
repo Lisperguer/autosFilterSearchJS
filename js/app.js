@@ -68,6 +68,7 @@ function mostrarAutos(){
 
 }
 
+//Muestra los años en el select
 function llenarSelect(){
   for (let i = max; i > min; i--){
     const opcion = document.createElement('option');
