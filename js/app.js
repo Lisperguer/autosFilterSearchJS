@@ -95,12 +95,13 @@ function llenarSelect(){
 //funcion que filtra en base a la busqueda
 
 function filtrarAuto(){
-  const resultado = autos.filter(filtrarMarca).filter(filtrarYear).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarPuertas).filter(filtrarColor);
+  const resultado = autos.filter(filtrarMarca).filter(filtrarYear).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarPuertas).filter(filtrarColor).filter(filtrarTransmision);
   console.log(resultado);
 
   if (resultado.length){
     mostrarAutos(resultado);
   } else {
+    limpiarHTML();
     noResultado();
   }
 };
@@ -151,7 +152,7 @@ function filtrarColor(auto){
   } 
   return auto;
 }
-function filtrarColor(auto){
+function filtrarTransmision(auto){
   if (datosBusqueda.transmision){
     return auto.transmision === datosBusqueda.transmision;
   } 
